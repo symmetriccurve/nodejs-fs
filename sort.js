@@ -17,7 +17,7 @@ fs.readdir(recordingsRootFolder, (err, AllFolders) => {
 					fs.stat(eachFilePath, function (err, stats) {
 						if (path.extname(eachFilePath) == '.zoom' || path.extname(eachFilePath) == '.mp4') {
 							if (stats["size"] < 30000000) {// Assuming less than 5 minutes is less than 30mb
-								console.log('Deleting: File found to be less than 1mb deleting . . .');
+								console.log('Deleting: File found to be less than 30mb deleting . . .');
 								del([eachFolderPath]).then(eachFilePath => {
 									console.log('\x1b[31m%s\x1b[0m','Deleted');
 								});
